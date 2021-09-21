@@ -17,75 +17,42 @@
  * Define Global Variables
  * 
 */
-
 let navBarList = document.getElementById('navbar__list');
 let mySections = document.querySelectorAll("section");
 
-
 /**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-function helper() {
-
-}
-
-
-/**
- * End Helper Functions
  * Begin Main Functions
  * 
 */
 
-// build the nav
+// =============== build the nav ===============
 (function buildNav() {
     for (let i = 0; i < mySections.length; i++) {
-        let lists = document.createElement('li');
-        let links = document.createElement('a');
-        let listContent = document.createTextNode(`Section${i+1}`);
-        links.classList.add("menu__link");
-        links.setAttribute("href", `#section${i+1}`);
-        links.appendChild(listContent);
-        lists.appendChild(links);
-        navBarList.appendChild(lists);
-        // navBarList.innerHTML = lists;
+        let lists = document.createElement('li');        // Create li tag
+        let links = document.createElement('a');         // create a tag
+        let listContent = document.createTextNode(`Section${i + 1}`);  // Write word section followed by specific number
+        links.classList.add("menu__link");               // Added menu__link class to all of a tags
+        links.setAttribute("href", `#section${i + 1}`);  // Add href attr to a tags
+        links.appendChild(listContent);                  // Add words that I wrote before and append them to a tags
+        lists.appendChild(links);                        // Append a tags to li tags
+        navBarList.appendChild(lists);                   // Append li tags to be into ul tag
     }
-
-    // ===================== My Old Solution =====================
-    // let links = `
-    //         <li><a href="#section1" class="menu__link">Section1</a></li>
-    //         <li><a href="#section2" class="menu__link">Section2</a></li>
-    //         <li><a href="#section3" class="menu__link">Section3</a></li>
-    //         <li><a href="#section4" class="menu__link">Section4</a></li>
-    //         <li><a href="#section5" class="menu__link">Section5</a></li>
-    //         <li><a href="#section6" class="menu__link">Section6</a></li>
-    //         <li><a href="#section7" class="menu__link">Section7</a></li>
-    //         `;
-
-    // navBarList.innerHTML = links;
 })();
 
+// ==================================================================================
+
+// =============== Show a BTN after a specific scroll to let the user go up ===============
+let goUpBtn = document.querySelector(".go-up");
+
+window.addEventListener("scroll", ()=> {
+    if (window.scrollY > 300) {
+        goUpBtn.style.opacity = "1";
+    }
+    else {
+        goUpBtn.style.opacity = "0";
+    }
+});
 
 
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-
-/**
- * End Main Functions
- * Begin Events
- *
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
 
 
