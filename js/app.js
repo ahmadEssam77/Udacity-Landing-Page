@@ -19,7 +19,7 @@
 */
 
 let navBarList = document.getElementById('navbar__list');
-// let mySections = document.querySelectorAll('section');
+let mySections = document.querySelectorAll("section");
 
 
 /**
@@ -39,17 +39,33 @@ function helper() {
 */
 
 // build the nav
-let links = `
-            <li><a href="#section1" class="menu__link">Section1</a></li>
-            <li><a href="#section2" class="menu__link">Section2</a></li>
-            <li><a href="#section3" class="menu__link">Section3</a></li>
-            <li><a href="#section4" class="menu__link">Section4</a></li>
-            <li><a href="#section5" class="menu__link">Section5</a></li>
-            <li><a href="#section6" class="menu__link">Section6</a></li>
-            <li><a href="#section7" class="menu__link">Section7</a></li>
-            `;
+(function buildNav() {
+    for (let i = 0; i < mySections.length; i++) {
+        let lists = document.createElement('li');
+        let links = document.createElement('a');
+        let listContent = document.createTextNode(`Section${i+1}`);
+        links.classList.add("menu__link");
+        links.setAttribute("href", `#section${i+1}`);
+        links.appendChild(listContent);
+        lists.appendChild(links);
+        navBarList.appendChild(lists);
+        // navBarList.innerHTML = lists;
+    }
 
-navBarList.innerHTML = links;
+    // ===================== My Old Solution =====================
+    // let links = `
+    //         <li><a href="#section1" class="menu__link">Section1</a></li>
+    //         <li><a href="#section2" class="menu__link">Section2</a></li>
+    //         <li><a href="#section3" class="menu__link">Section3</a></li>
+    //         <li><a href="#section4" class="menu__link">Section4</a></li>
+    //         <li><a href="#section5" class="menu__link">Section5</a></li>
+    //         <li><a href="#section6" class="menu__link">Section6</a></li>
+    //         <li><a href="#section7" class="menu__link">Section7</a></li>
+    //         `;
+
+    // navBarList.innerHTML = links;
+})();
+
 
 
 
@@ -63,7 +79,7 @@ navBarList.innerHTML = links;
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
 // Build menu 
