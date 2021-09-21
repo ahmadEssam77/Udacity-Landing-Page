@@ -65,7 +65,8 @@ let sec7 = document.getElementById("section7");
 
 window.addEventListener("scroll", ()=> {
     if (window.scrollY > 300 && window.scrollY < 700 ) {
-        console.log("Section one is here");
+        sec1.classList.add("your-active-class");
+        sec2.classList.remove("your-active-class");
     }
     else if (window.scrollY > 860 && window.scrollY < 1280) {
         sec1.classList.remove("your-active-class");
