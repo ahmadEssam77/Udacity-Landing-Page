@@ -53,6 +53,14 @@ window.addEventListener("scroll", ()=> {
     }
 });
 
+// =============== Go Up function ===============
+goUpBtn.addEventListener('click', ()=> {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
 // ==================================================================================
 // =============== Section Highlighted via bubble ===============
 let sec1 = document.getElementById("section1");
@@ -62,33 +70,39 @@ let sec4 = document.getElementById("section4");
 let sec5 = document.getElementById("section5");
 let sec6 = document.getElementById("section6");
 let sec7 = document.getElementById("section7");
+let myFooter = document.querySelector('.page__footer');
 
 window.addEventListener("scroll", ()=> {
-    if (window.scrollY > 300 && window.scrollY < 700 ) {
+    if (window.scrollY >= sec1.offsetTop && window.scrollY < sec2.offsetTop - 50) {
         sec1.classList.add("your-active-class");
         sec2.classList.remove("your-active-class");
     }
-    else if (window.scrollY > 860 && window.scrollY < 1280) {
+    else if (window.scrollY >= sec2.offsetTop && window.scrollY < sec3.offsetTop) {
         sec1.classList.remove("your-active-class");
         sec2.classList.add("your-active-class");
+        sec3.classList.remove("your-active-class");
     }
-    else if (window.scrollY > 1420 && window.scrollY < 1950) {
+    else if (window.scrollY >= sec3.offsetTop && window.scrollY < sec4.offsetTop) {
         sec2.classList.remove("your-active-class");
         sec3.classList.add("your-active-class");
+        sec4.classList.remove("your-active-class");
     }
-    else if (window.scrollY > 2040 && window.scrollY < 2450) {
+    else if (window.scrollY >= sec4.offsetTop && window.scrollY < sec5.offsetTop) {
         sec3.classList.remove("your-active-class");
         sec4.classList.add("your-active-class");
+        sec5.classList.remove("your-active-class");
     }
-    else if (window.scrollY > 2600 && window.scrollY < 3100) {
+    else if (window.scrollY >= sec5.offsetTop && window.scrollY < sec6.offsetTop) {
         sec4.classList.remove("your-active-class");
         sec5.classList.add("your-active-class");
+        sec6.classList.remove("your-active-class");
     }
-    else if (window.scrollY > 3240 && window.scrollY < 3660) {
+    else if (window.scrollY >= sec6.offsetTop && window.scrollY < sec7.offsetTop) {
         sec5.classList.remove("your-active-class");
         sec6.classList.add("your-active-class");
+        sec7.classList.remove("your-active-class");
     }
-    else if (window.scrollY > 3770 && window.scrollY < 4100) {
+    else if (window.scrollY >= sec7.offsetTop && window.scrollY < myFooter.offsetTop) {
         sec6.classList.remove("your-active-class");
         sec7.classList.add("your-active-class");
     }
